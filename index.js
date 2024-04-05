@@ -9,16 +9,18 @@ let isContinuePlaying = true;
 while (isContinuePlaying) {
   // const player1RandomChoice = randomChoice();
   let playerChoice = prompt(
-    'Please choose rock, paper or scissors: '
+    'Please choose rock, paper, scissors, lizard or spock:'
   ).toLowerCase();
   // console.log({ playerChoice });
   while (
     playerChoice !== 'rock' &&
     playerChoice !== 'paper' &&
-    playerChoice !== 'scissors'
+    playerChoice !== 'scissors' &&
+    playerChoice !== 'lizard' &&
+    playerChoice !== 'spock'
   ) {
     playerChoice = prompt(
-      'Invalid option! Please choose rock, paper or scissors:'
+      'Invalid option! Please choose rock, paper, scissors, lizard or spock:'
     );
   }
 
@@ -62,7 +64,7 @@ while (isContinuePlaying) {
 }
 
 function randomChoice() {
-  let choice = Math.floor(Math.random() * 3);
+  let choice = Math.floor(Math.random() * 5);
 
   if (choice === 0) {
     console.log(`Player 2 chose rock`);
@@ -70,9 +72,13 @@ function randomChoice() {
   } else if (choice === 1) {
     console.log(`Player 2 chose paper`);
     return 'paper';
-  } else {
+  } else if (choice === 2) {
     console.log(`Player 2 chose scisssors`);
     return 'scissors';
+  } else if (choice === 3) {
+    console.log(`Player 2 chose lizard`);
+  } else {
+    console.log(`Player 2 chose Spock`);
   }
 }
 
@@ -83,7 +89,14 @@ function winner(player1, player2) {
   } else if (
     (player1 === 'rock' && player2 === 'scissors') ||
     (player1 === 'scissors' && player2 === 'paper') ||
-    (player1 === 'paper' && player2 === 'rock')
+    (player1 === 'paper' && player2 === 'rock') ||
+    (player1 === 'lizard' && player2 === 'paper') ||
+    (player1 === 'lizard' && player2 === 'spock') ||
+    (player1 === 'spock' && player2 === 'scissors') ||
+    (player1 === 'spock' && player2 === 'rock') ||
+    (player1 === 'paper' && player2 === 'spock') ||
+    (player1 === 'scissors' && player2 === 'lizard') ||
+    (player1 === 'rock' && player2 === 'lizard')
   ) {
     console.log(`You win round ${rounds}!`);
     return 'Player 1 Wins!';
