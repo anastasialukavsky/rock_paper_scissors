@@ -27,20 +27,6 @@ while (isContinuePlaying) {
   const roundWinner = winner(playerChoice, player2RandomChoice);
   score(roundWinner);
 
-  if (rounds === 10) {
-    console.log(
-      `FINAL SCORE:\nPlayer 1: ${player1Score}\nPlayer 2: ${player2Score}`
-    );
-
-    if (player1Score > player2Score) {
-      console.log('You Win!');
-    } else if (player2Score > player1Score) {
-      console.log('Player 2 Wins!');
-    } else {
-      console.log("It's a tie!");
-    }
-  }
-
   rounds++;
 
   let keepPlaying = prompt(
@@ -51,13 +37,28 @@ while (isContinuePlaying) {
     keepPlaying = prompt(
       "Invalid answer. Please enter 'yes' or 'no': "
     ).toLowerCase();
-
-    if (keepPlaying === 'no') {
-      isContinuePlaying = false;
-    }
   }
 
+  if (keepPlaying === 'no') {
+    console.log(
+      `FINAL SCORE:\nYour score: ${player1Score}\nPlayer 2 score: ${player2Score}`
+    );
 
+    if (player1Score > player2Score) {
+      console.log('You Win!');
+    } else if (player2Score > player1Score) {
+      console.log('Player 2 Wins!');
+    } else {
+      console.log("It's a tie!");
+    }
+
+    isContinuePlaying = false;
+    // break;
+  }
+
+  // if (!isContinuePlaying) {
+
+  // }
 }
 
 function randomChoice() {
