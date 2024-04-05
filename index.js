@@ -6,13 +6,13 @@ function randomChoice() {
     // console.log(choice);
 
     if (choice === 0) {
-        // console.log("rock")
+        console.log("rock")
         return "rock"
     } else if (choice === 1) {
-        // console.log('paper')
+        console.log('paper')
         return "paper"
     } else {
-        // console.log('scissors')
+        console.log('scissors')
         return "scissors"
     }
 }
@@ -20,13 +20,13 @@ function randomChoice() {
 function winner(player1, player2) {
 
     if (player1 === player2) {
-        // console.log("It's a tie");
+        console.log("It's a tie");
         return "It's a tie";
     } else if ((player1 === "rock" && player2 === "scissors") || (player1 === "scissors" && player2 === 'paper') || (player1 === "paper" && player2 === "rock")) {
-        // console.log('Player 1 Wins!');
+        console.log('Player 1 Wins!');
         return "Player 1 Wins!";
     } else {
-        // console.log("Player 2 Wins!");
+        console.log("Player 2 Wins!");
         return "Player 2 Wins!";
     }
 }
@@ -48,15 +48,27 @@ function score(winner) {
 }
 
 
-score("It's a tie");
-score("Player 2 Wins!");
-score("Player 2 Wins!");
-score("Player 1 Wins!");
+// score("It's a tie");
+// score("Player 2 Wins!");
+// score("Player 2 Wins!");
+// score("Player 1 Wins!");
 
 
-// let player1 = randomChoice();
-// let player2 = randomChoice();
-// let result = winner(player1, player2);
+let player1 = randomChoice();
+let player2 = randomChoice();
+let result = winner(player1, player2);
+score(result);
+
+
+let player3 = randomChoice();
+let player4 = randomChoice();
+let result1 = winner(player3, player4);
+score(result1);
+
+let player5 = randomChoice();
+let player6 = randomChoice();
+let result2 = winner(player5, player6);
+score(result2);
 
 // console.log(player1, player2, result)
 
