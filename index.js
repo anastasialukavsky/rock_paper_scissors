@@ -1,11 +1,12 @@
 // console.log('hello world');
 
 const prompt = require('prompt-sync')();
-let rounds = 0;
+let rounds = 1;
 let player1Score = 0;
 let player2Score = 0;
+let isContinuePlaying = true;
 
-while (rounds <= 10) {
+while (isContinuePlaying) {
   // const player1RandomChoice = randomChoice();
   let playerChoice = prompt(
     'Please choose rock, paper or scissors: '
@@ -41,6 +42,22 @@ while (rounds <= 10) {
   }
 
   rounds++;
+
+  let keepPlaying = prompt(
+    "Would you like to continue playing? Please enter 'yes' or 'no': "
+  ).toLowerCase();
+
+  while (keepPlaying !== 'yes' && keepPlaying !== 'no') {
+    keepPlaying = prompt(
+      "Invalid answer. Please enter 'yes' or 'no': "
+    ).toLowerCase();
+
+    if (keepPlaying === 'no') {
+      isContinuePlaying = false;
+    }
+  }
+
+
 }
 
 function randomChoice() {
