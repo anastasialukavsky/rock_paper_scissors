@@ -1,14 +1,29 @@
 // console.log('hello world');
 
+const prompt = require('prompt-sync')();
 let rounds = 0;
 let player1Score = 0;
 let player2Score = 0;
 
 while (rounds <= 10) {
-  const player1RandomChoice = randomChoice();
+  // const player1RandomChoice = randomChoice();
+  let playerChoice = prompt(
+    'Please choose rock, paper or scissors: '
+  ).toLowerCase();
+  // console.log({ playerChoice });
+  while (
+    playerChoice !== 'rock' &&
+    playerChoice !== 'paper' &&
+    playerChoice !== 'scissors'
+  ) {
+    playerChoice = prompt(
+      'Invalid option! Please choose rock, paper or scissors:'
+    );
+  }
+
   const player2RandomChoice = randomChoice();
 
-  const roundWinner = winner(player1RandomChoice, player2RandomChoice);
+  const roundWinner = winner(playerChoice, player2RandomChoice);
   score(roundWinner);
 
   if (rounds === 10) {
@@ -17,7 +32,7 @@ while (rounds <= 10) {
     );
 
     if (player1Score > player2Score) {
-      console.log('Player 1 Wins!');
+      console.log('You Win!');
     } else if (player2Score > player1Score) {
       console.log('Player 2 Wins!');
     } else {
@@ -30,16 +45,15 @@ while (rounds <= 10) {
 
 function randomChoice() {
   let choice = Math.floor(Math.random() * 3);
-  // console.log(choice);
 
   if (choice === 0) {
-    console.log('rock');
+    console.log(`Player 2 chose rock`);
     return 'rock';
   } else if (choice === 1) {
-    console.log('paper');
+    console.log(`Player 2 chose paper`);
     return 'paper';
   } else {
-    console.log('scissors');
+    console.log(`Player 2 chose scisssors`);
     return 'scissors';
   }
 }
@@ -53,10 +67,10 @@ function winner(player1, player2) {
     (player1 === 'scissors' && player2 === 'paper') ||
     (player1 === 'paper' && player2 === 'rock')
   ) {
-    console.log('Player 1 Wins!');
+    console.log(`You win round ${rounds}!`);
     return 'Player 1 Wins!';
   } else {
-    console.log('Player 2 Wins!');
+    console.log(`Player 2 wins round ${rounds}!`);
     return 'Player 2 Wins!';
   }
 }
