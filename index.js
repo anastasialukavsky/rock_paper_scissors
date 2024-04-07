@@ -1,5 +1,3 @@
-// console.log('hello world');
-
 const prompt = require('prompt-sync')();
 let rounds = 1;
 let player1Score = 0;
@@ -7,11 +5,9 @@ let player2Score = 0;
 let isContinuePlaying = true;
 
 while (isContinuePlaying) {
-  // const player1RandomChoice = randomChoice();
   let playerChoice = prompt(
-    'Please choose rock, paper, scissors, lizard or spock:'
+    'Please choose rock, paper, scissors, lizard or spock: '
   ).toLowerCase();
-  // console.log({ playerChoice });
   while (
     playerChoice !== 'rock' &&
     playerChoice !== 'paper' &&
@@ -20,7 +16,7 @@ while (isContinuePlaying) {
     playerChoice !== 'spock'
   ) {
     playerChoice = prompt(
-      'Invalid option! Please choose rock, paper, scissors, lizard or spock:'
+      'Invalid option! Please choose rock, paper, scissors, lizard or spock: '
     );
   }
 
@@ -55,12 +51,7 @@ while (isContinuePlaying) {
     }
 
     isContinuePlaying = false;
-    // break;
   }
-
-  // if (!isContinuePlaying) {
-
-  // }
 }
 
 function randomChoice() {
@@ -116,31 +107,3 @@ function score(winner) {
   console.log(player1Score, player2Score);
   return player1Score, player2Score;
 }
-
-// score("It's a tie");
-// score("Player 2 Wins!");
-// score("Player 2 Wins!");
-// score("Player 1 Wins!");
-
-// let player1 = randomChoice();
-// let player2 = randomChoice();
-// let result = winner(player1, player2);
-// score(result);
-
-// let player3 = randomChoice();
-// let player4 = randomChoice();
-// let result1 = winner(player3, player4);
-// score(result1);
-
-// let player5 = randomChoice();
-// let player6 = randomChoice();
-// let result2 = winner(player5, player6);
-// score(result2);
-
-// console.log(player1, player2, result)
-
-// randomChoice();
-// winner("rock", "rock");
-// winner("rock", "paper");
-// winner("paper", "rock");
-// winner("rock", "scissors");
