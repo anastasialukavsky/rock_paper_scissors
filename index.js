@@ -38,6 +38,7 @@ while (isContinuePlaying) {
   }
 
   if (keepPlaying === 'no') {
+    console.log('______________________________________________________________')
     console.log(
       `FINAL SCORE:\nYour score: ${player1Score}\nPlayer 2 score: ${player2Score}`
     );
